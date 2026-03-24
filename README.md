@@ -35,6 +35,7 @@ Cada jogo pode conter:
 
 ## 🖥️ Estrutura do projeto
 
+```
 lib/
 │
 ├── models/
@@ -47,7 +48,7 @@ lib/
 │   └── game_detail_page.dart
 │
 └── main.dart
-
+```
 ---
 
 ## 🎨 Interface
@@ -81,10 +82,10 @@ O aplicativo utiliza um tema escuro personalizado, com foco em:
 ## ▶️ Como executar
 
 1. Clone o repositório:
-git clone <url-do-repositorio>
+git clone <[url-do-repositorio](https://github.com/nicolasthomee/catalogo-jogos)>
 
 2. Acesse a pasta:
-cd nome-do-projeto
+cd catalogo-jogos
 
 3. Execute o projeto:
 flutter run
