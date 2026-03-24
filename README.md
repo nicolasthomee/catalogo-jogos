@@ -82,7 +82,7 @@ O aplicativo utiliza um tema escuro personalizado, com foco em:
 ## ▶️ Como executar
 
 1. Clone o repositório:
-git clone <[url-do-repositorio](https://github.com/nicolasthomee/catalogo-jogos)>
+git clone <[catalogo-jogos](https://github.com/nicolasthomee/catalogo-jogos)>
 
 2. Acesse a pasta:
 cd catalogo-jogos
