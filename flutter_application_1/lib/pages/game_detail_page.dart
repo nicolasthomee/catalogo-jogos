@@ -3,14 +3,14 @@ import '../models/game_model.dart';
 
 // Tela responsável por exibir os detalhes de um jogo
 class GameDetailPage extends StatelessWidget {
-  final Game game; // Recebe o jogo que será exibido
+  final Game game;
 
   const GameDetailPage({super.key, required this.game});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Barra superior com título da tela
+      // Barra superior
       appBar: AppBar(
         title: Text(
           "Detalhes do Jogo",
@@ -20,7 +20,7 @@ class GameDetailPage extends StatelessWidget {
           ),
         ),
         centerTitle: true,
-        backgroundColor: Color.fromRGBO(88, 101, 242, 1),
+        backgroundColor: Color.fromRGBO(6, 18, 24, 1),
         elevation: 0,
         toolbarHeight: 80,
       ),
@@ -29,28 +29,27 @@ class GameDetailPage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16),
 
-        // Card que agrupa as informações do jogo
+        // Card com informações
         child: Card(
-          color: Color.fromRGBO(36, 36, 40, 1),
+          color: Color.fromRGBO(20, 38, 48, 1),
           elevation: 4,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(20), // Apple style
           ),
 
           child: Padding(
             padding: const EdgeInsets.all(20),
 
-            // Organização vertical das informações
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // NOME DO JOGO
+                // NOME
                 Row(
                   children: [
                     Icon(
-                      Icons.videogame_asset,
-                      size: 30,
-                      color: Color.fromRGBO(174, 174, 178, 1),
+                      Icons.sports_esports,
+                      size: 32,
+                      color: Color.fromRGBO(0, 190, 255, 1),
                     ),
                     SizedBox(width: 10),
                     Expanded(
@@ -59,28 +58,32 @@ class GameDetailPage extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                          color: Color.fromRGBO(230, 235, 240, 1),
                         ),
                       ),
                     ),
                   ],
                 ),
 
-                // Linha separadora
                 Divider(
                   height: 30,
-                  color: Color.fromRGBO(70, 74, 90, 1),
+                  color: Color.fromRGBO(35, 60, 72, 1),
                 ),
 
                 // GÊNERO
                 Row(
                   children: [
-                    Icon(Icons.category,
-                        color: Color.fromRGBO(174, 174, 178, 1)),
+                    Icon(
+                      Icons.label_outline, // mais moderno
+                      color: Color.fromRGBO(140, 160, 170, 1),
+                    ),
                     SizedBox(width: 10),
                     Text(
                       "Gênero: ${game.genre}",
-                      style: TextStyle(fontSize: 18, color: Colors.white),
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Color.fromRGBO(230, 235, 240, 1),
+                      ),
                     ),
                   ],
                 ),
@@ -90,63 +93,80 @@ class GameDetailPage extends StatelessWidget {
                 // PLATAFORMA
                 Row(
                   children: [
-                    Icon(Icons.devices,
-                        color: Color.fromRGBO(174, 174, 178, 1)),
+                    Icon(
+                      Icons.devices_other, // mais moderno
+                      color: Color.fromRGBO(140, 160, 170, 1),
+                    ),
                     SizedBox(width: 10),
                     Text(
                       "Plataforma: ${game.platform}",
-                      style: TextStyle(fontSize: 18, color: Colors.white),
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Color.fromRGBO(230, 235, 240, 1),
+                      ),
                     ),
                   ],
                 ),
 
                 SizedBox(height: 15),
 
-                // ANO (só aparece se existir)
+                // ANO
                 if (game.year != null)
                   Row(
                     children: [
-                      Icon(Icons.calendar_today,
-                          color: Color.fromRGBO(174, 174, 178, 1)),
+                      Icon(
+                        Icons.event,
+                        color: Color.fromRGBO(140, 160, 170, 1),
+                      ),
                       SizedBox(width: 10),
                       Text(
                         "Ano: ${game.year}",
-                        style:
-                            TextStyle(fontSize: 18, color: Colors.white),
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Color.fromRGBO(230, 235, 240, 1),
+                        ),
                       ),
                     ],
                   ),
 
                 SizedBox(height: 15),
 
-                // STATUS (só aparece se existir)
+                // STATUS
                 if (game.status != null)
                   Row(
                     children: [
-                      Icon(Icons.flag,
-                          color: Color.fromRGBO(174, 174, 178, 1)),
+                      Icon(
+                        Icons.flag_outlined,
+                        color: Color.fromRGBO(140, 160, 170, 1),
+                      ),
                       SizedBox(width: 10),
                       Text(
                         "Status: ${game.status}",
-                        style:
-                            TextStyle(fontSize: 18, color: Colors.white),
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Color.fromRGBO(230, 235, 240, 1),
+                        ),
                       ),
                     ],
                   ),
 
                 SizedBox(height: 15),
 
-                // NOTA (só aparece se existir)
+                // NOTA
                 if (game.rating != null)
                   Row(
                     children: [
-                      Icon(Icons.star,
-                          color: Color.fromRGBO(255, 179, 64, 1)),
+                      Icon(
+                        Icons.star_rounded,
+                        color: Color.fromRGBO(255, 170, 60, 1),
+                      ),
                       SizedBox(width: 10),
                       Text(
                         "Nota: ${game.rating}",
-                        style:
-                            TextStyle(fontSize: 18, color: Colors.white),
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Color.fromRGBO(230, 235, 240, 1),
+                        ),
                       ),
                     ],
                   ),

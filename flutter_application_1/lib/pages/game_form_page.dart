@@ -3,7 +3,7 @@ import '../models/game_model.dart';
 
 // Tela responsável por adicionar ou editar um jogo
 class GameFormPage extends StatefulWidget {
-  final Game? game; // Recebe um jogo opcional (para edição)
+  final Game? game;
 
   const GameFormPage({super.key, this.game});
 
@@ -84,6 +84,40 @@ class _GameFormPageState extends State<GameFormPage> {
     Navigator.pop(context, game);
   }
 
+  // Estilo padrão dos inputs (remove totalmente o roxo)
+  InputDecoration inputStyle(String label) {
+    return InputDecoration(
+      labelText: label,
+      labelStyle: TextStyle(
+        color: Color.fromRGBO(140, 160, 170, 1),
+      ),
+      floatingLabelStyle: TextStyle(
+        color: Color.fromRGBO(0, 190, 255, 1),
+      ),
+      filled: true,
+      fillColor: Color.fromRGBO(12, 30, 40, 1),
+
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(20),
+      ),
+
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(20),
+        borderSide: BorderSide(
+          color: Color.fromRGBO(50, 75, 90, 1),
+        ),
+      ),
+
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(20),
+        borderSide: BorderSide(
+          color: Color.fromRGBO(0, 190, 255, 1),
+          width: 2,
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -97,7 +131,7 @@ class _GameFormPageState extends State<GameFormPage> {
           ),
         ),
         centerTitle: true,
-        backgroundColor: Color.fromRGBO(88, 101, 242, 1),
+        backgroundColor: Color.fromRGBO(6, 18, 24, 1),
         elevation: 0,
         toolbarHeight: 80,
       ),
@@ -108,42 +142,32 @@ class _GameFormPageState extends State<GameFormPage> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              // Campo de nome
+              // NOME
               TextField(
                 controller: nameController,
-                style: TextStyle(color: Colors.white),
-                decoration: InputDecoration(
-                  labelText: "Nome",
-                  labelStyle: TextStyle(color: Color.fromRGBO(70, 74, 90, 1)),
-                  filled: true,
-                  fillColor: Color.fromRGBO(34, 37, 47, 1),
-                  border: OutlineInputBorder(),
-                ),
+                cursorColor: Color.fromRGBO(0, 190, 255, 1),
+                style: TextStyle(color: Color.fromRGBO(230, 235, 240, 1)),
+                decoration: inputStyle("Nome"),
               ),
 
               SizedBox(height: 15),
 
-              // Campo de ano
+              // ANO
               TextField(
                 controller: yearController,
                 keyboardType: TextInputType.number,
-                style: TextStyle(color: Colors.white),
-                decoration: InputDecoration(
-                  labelText: "Ano de lançamento",
-                  labelStyle: TextStyle(color: Color.fromRGBO(70, 74, 90, 1)),
-                  filled: true,
-                  fillColor: Color.fromRGBO(34, 37, 47, 1),
-                  border: OutlineInputBorder(),
-                ),
+                cursorColor: Color.fromRGBO(0, 190, 255, 1),
+                style: TextStyle(color: Color.fromRGBO(230, 235, 240, 1)),
+                decoration: inputStyle("Ano de lançamento"),
               ),
 
               SizedBox(height: 15),
 
-              // Dropdown de gênero
+              // GENERO
               DropdownButtonFormField<String>(
                 value: selectedGenre,
-                dropdownColor: Color.fromRGBO(34, 37, 47, 1),
-                style: TextStyle(color: Colors.white),
+                dropdownColor: Color.fromRGBO(12, 30, 40, 1),
+                style: TextStyle(color: Color.fromRGBO(230, 235, 240, 1)),
                 items: genres.map((g) {
                   return DropdownMenuItem(value: g, child: Text(g));
                 }).toList(),
@@ -152,21 +176,16 @@ class _GameFormPageState extends State<GameFormPage> {
                     selectedGenre = value;
                   });
                 },
-                decoration: InputDecoration(
-                  labelText: "Gênero",
-                  filled: true,
-                  fillColor: Color.fromRGBO(34, 37, 47, 1),
-                  border: OutlineInputBorder(),
-                ),
+                decoration: inputStyle("Gênero"),
               ),
 
               SizedBox(height: 15),
 
-              // Dropdown de plataforma
+              // PLATAFORMA
               DropdownButtonFormField<String>(
                 value: selectedPlatform,
-                dropdownColor: Color.fromRGBO(34, 37, 47, 1),
-                style: TextStyle(color: Colors.white),
+                dropdownColor: Color.fromRGBO(12, 30, 40, 1),
+                style: TextStyle(color: Color.fromRGBO(230, 235, 240, 1)),
                 items: platforms.map((p) {
                   return DropdownMenuItem(value: p, child: Text(p));
                 }).toList(),
@@ -175,21 +194,16 @@ class _GameFormPageState extends State<GameFormPage> {
                     selectedPlatform = value;
                   });
                 },
-                decoration: InputDecoration(
-                  labelText: "Plataforma",
-                  filled: true,
-                  fillColor: Color.fromRGBO(34, 37, 47, 1),
-                  border: OutlineInputBorder(),
-                ),
+                decoration: inputStyle("Plataforma"),
               ),
 
               SizedBox(height: 15),
 
-              // Dropdown de status
+              // STATUS
               DropdownButtonFormField<String>(
                 value: selectedStatus,
-                dropdownColor: Color.fromRGBO(34, 37, 47, 1),
-                style: TextStyle(color: Colors.white),
+                dropdownColor: Color.fromRGBO(12, 30, 40, 1),
+                style: TextStyle(color: Color.fromRGBO(230, 235, 240, 1)),
                 items: statusList.map((s) {
                   return DropdownMenuItem(value: s, child: Text(s));
                 }).toList(),
@@ -198,30 +212,27 @@ class _GameFormPageState extends State<GameFormPage> {
                     selectedStatus = value;
                   });
                 },
-                decoration: InputDecoration(
-                  labelText: "Status",
-                  filled: true,
-                  fillColor: Color.fromRGBO(34, 37, 47, 1),
-                  border: OutlineInputBorder(),
-                ),
+                decoration: inputStyle("Status"),
               ),
 
               SizedBox(height: 20),
 
-              // Nota só aparece quando faz sentido (não "Quero jogar")
+              // NOTA
               if (selectedStatus != "Quero jogar")
                 Column(
                   children: [
                     Text(
                       "Nota: ${rating.toInt()}",
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(
+                        color: Color.fromRGBO(230, 235, 240, 1),
+                      ),
                     ),
                     Slider(
                       value: rating,
                       min: 1,
                       max: 5,
                       divisions: 4,
-                      activeColor: Color.fromRGBO(88, 101, 242, 1),
+                      activeColor: Color.fromRGBO(0, 190, 255, 1),
                       onChanged: (value) {
                         setState(() {
                           rating = value;
@@ -233,11 +244,15 @@ class _GameFormPageState extends State<GameFormPage> {
 
               SizedBox(height: 20),
 
-              // Botão de salvar
+              // BOTÃO SALVAR
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color.fromRGBO(88, 101, 242, 1),
-                  foregroundColor: Colors.white,
+                  backgroundColor: Color.fromRGBO(0, 160, 220, 1),
+                  foregroundColor: Color.fromRGBO(230, 235, 240, 1),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
                 ),
                 onPressed: save,
                 child: Text("Salvar"),

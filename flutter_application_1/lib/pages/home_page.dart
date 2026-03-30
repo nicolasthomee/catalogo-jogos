@@ -24,11 +24,11 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Ícone principal do app
+              // Ícone principal do app (mais moderno e maior)
               Icon(
-                Icons.videogame_asset,
-                size: 80,
-                color: Color.fromRGBO(114, 137, 255, 1),
+                Icons.sports_esports,
+                size: 110,
+                color: Color.fromRGBO(0, 190, 255, 1),
               ),
 
               SizedBox(height: 20),
@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: Color.fromRGBO(230, 235, 240, 1),
                 ),
               ),
 
@@ -48,9 +48,12 @@ class _HomePageState extends State<HomePage> {
               // Botão para acessar a lista de jogos
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color.fromRGBO(88, 101, 242, 1),
-                  foregroundColor: Colors.white,
-                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                  backgroundColor: Color.fromRGBO(0, 160, 220, 1),
+                  foregroundColor: Color.fromRGBO(230, 235, 240, 1),
+                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 18),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
                 ),
                 onPressed: () {
                   // Navega para a tela de lista, passando a lista de jogos

@@ -24,7 +24,7 @@ class _GamesListPageState extends State<GamesListPage> {
     games = widget.games;
   }
 
-  // Adiciona um novo jogo na lista
+  // Adiciona um novo jogo
   void addGame(Game game) {
     setState(() {
       games.add(game);
@@ -38,7 +38,7 @@ class _GamesListPageState extends State<GamesListPage> {
     });
   }
 
-  // Remove um jogo da lista
+  // Remove um jogo
   void deleteGame(int index) {
     setState(() {
       games.removeAt(index);
@@ -48,7 +48,7 @@ class _GamesListPageState extends State<GamesListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Barra superior da tela
+      // Barra superior
       appBar: AppBar(
         title: Text(
           "Jogos",
@@ -58,44 +58,51 @@ class _GamesListPageState extends State<GamesListPage> {
           ),
         ),
         centerTitle: true,
-        backgroundColor: Color.fromRGBO(88, 101, 242, 1),
+        backgroundColor: Color.fromRGBO(6, 18, 24, 1),
         elevation: 0,
         toolbarHeight: 80,
       ),
 
       // Lista dinâmica de jogos
       body: ListView.builder(
-        itemCount: games.length, // quantidade de itens
+        itemCount: games.length,
         itemBuilder: (context, index) {
           final game = games[index];
 
           return Padding(
             padding: EdgeInsets.all(8),
 
-            // Card que representa cada jogo
+            // Card de cada jogo
             child: Card(
-              color: Color.fromRGBO(42, 45, 58, 1),
+              color: Color.fromRGBO(20, 38, 48, 1),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20), // estilo Apple
+              ),
 
               child: ListTile(
                 // Ícone do jogo
                 leading: Icon(
                   Icons.sports_esports,
-                  color: Color.fromRGBO(114, 137, 255, 1),
+                  color: Color.fromRGBO(0, 190, 255, 1),
                 ),
 
                 // Nome do jogo
                 title: Text(
                   game.name,
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(
+                    color: Color.fromRGBO(230, 235, 240, 1),
+                  ),
                 ),
 
-                // Informações secundárias (gênero e plataforma)
+                // Gênero e plataforma
                 subtitle: Text(
                   "${game.genre} • ${game.platform}",
-                  style: TextStyle(color: Color.fromRGBO(174, 174, 178, 1)),
+                  style: TextStyle(
+                    color: Color.fromRGBO(140, 160, 170, 1),
+                  ),
                 ),
 
-                // Ao clicar, abre a tela de detalhes
+                // Abre tela de detalhes
                 onTap: () {
                   Navigator.push(
                     context,
@@ -105,18 +112,17 @@ class _GamesListPageState extends State<GamesListPage> {
                   );
                 },
 
-                // Botões de ação (editar e excluir)
+                // Botões de ação
                 trailing: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     // BOTÃO EDITAR
                     IconButton(
                       icon: Icon(
-                        Icons.edit,
-                        color: Color.fromRGBO(255, 179, 64, 1),
+                        Icons.edit_rounded,
+                        color: Color.fromRGBO(200, 210, 220, 1),
                       ),
                       onPressed: () async {
-                        // Abre o formulário com o jogo atual
                         final updated = await Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -124,7 +130,6 @@ class _GamesListPageState extends State<GamesListPage> {
                           ),
                         );
 
-                        // Se houver retorno, atualiza o item
                         if (updated != null) {
                           updateGame(index, updated);
                         }
@@ -134,8 +139,8 @@ class _GamesListPageState extends State<GamesListPage> {
                     // BOTÃO DELETAR
                     IconButton(
                       icon: Icon(
-                        Icons.delete,
-                        color: Color.fromRGBO(255, 95, 87, 1),
+                        Icons.delete_outline,
+                        color: Color.fromRGBO(200, 210, 220, 1),
                       ),
                       onPressed: () {
                         deleteGame(index);
@@ -149,14 +154,13 @@ class _GamesListPageState extends State<GamesListPage> {
         },
       ),
 
-      // Botão flutuante para adicionar novo jogo
+      // Botão para adicionar novo jogo
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Color.fromRGBO(88, 101, 242, 1),
-        foregroundColor: Colors.white,
+        backgroundColor: Color.fromRGBO(0, 190, 255, 1),
+        foregroundColor: Color.fromRGBO(230, 235, 240, 1),
         child: Icon(Icons.add),
 
         onPressed: () async {
-          // Abre a tela de criação
           final newGame = await Navigator.push(
             context,
             MaterialPageRoute(
@@ -164,7 +168,6 @@ class _GamesListPageState extends State<GamesListPage> {
             ),
           );
 
-          // Se retornar um jogo, adiciona na lista
           if (newGame != null) {
             addGame(newGame);
           }

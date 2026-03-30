@@ -19,17 +19,17 @@ class MyApp extends StatelessWidget {
       // Tema global do app (cores e estilos)
       theme: ThemeData(
         // Cor de fundo padrão de todas as telas
-        scaffoldBackgroundColor: Color.fromRGBO(24, 26, 32, 1),
+        scaffoldBackgroundColor: Color.fromRGBO(6, 18, 24, 1),
 
         // Estilo padrão das AppBars
         appBarTheme: const AppBarTheme(
-          backgroundColor: Color.fromRGBO(36, 38, 48, 1),
-          foregroundColor: Colors.white,
+          backgroundColor: Color.fromRGBO(8, 22, 30, 1),
+          foregroundColor: Color.fromRGBO(230, 235, 240, 1),
         ),
 
         // Estilo padrão dos textos
         textTheme: const TextTheme(
-          bodyMedium: TextStyle(color: Colors.white),
+          bodyMedium: TextStyle(color: Color.fromRGBO(230, 235, 240, 1)),
         ),
       ),
 
