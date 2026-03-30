@@ -12,19 +12,15 @@ class GameFormPage extends StatefulWidget {
 }
 
 class _GameFormPageState extends State<GameFormPage> {
-  // Controllers para capturar texto digitado
   final nameController = TextEditingController();
   final yearController = TextEditingController();
 
-  // Variáveis para armazenar seleções dos dropdowns
   String? selectedGenre;
   String? selectedPlatform;
   String? selectedStatus;
 
-  // Valor da nota (slider)
   double rating = 3;
 
-  // Lista de opções de gênero
   final List<String> genres = [
     "Ação",
     "Aventura",
@@ -34,7 +30,6 @@ class _GameFormPageState extends State<GameFormPage> {
     "Terror",
   ];
 
-  // Lista de plataformas
   final List<String> platforms = [
     "PC",
     "PlayStation 3",
@@ -45,7 +40,6 @@ class _GameFormPageState extends State<GameFormPage> {
     "Xbox Series X",
   ];
 
-  // Lista de status do jogo
   final List<String> statusList = [
     "Jogando",
     "Zerado",
@@ -56,7 +50,6 @@ class _GameFormPageState extends State<GameFormPage> {
   void initState() {
     super.initState();
 
-    // Se estiver editando, preenche os campos com os dados existentes
     if (widget.game != null) {
       nameController.text = widget.game!.name;
       selectedGenre = widget.game!.genre;
@@ -64,23 +57,18 @@ class _GameFormPageState extends State<GameFormPage> {
     }
   }
 
-  // Função responsável por salvar o jogo
   void save() {
-    // Validação simples
     if (selectedGenre == null || selectedPlatform == null) return;
 
-    // Criação do objeto Game com os dados preenchidos
     final game = Game(
       name: nameController.text,
       genre: selectedGenre!,
       platform: selectedPlatform!,
       year: yearController.text.isEmpty ? null : int.parse(yearController.text),
       status: selectedStatus,
-      // Nota só é salva se o jogo não for "Quero jogar"
       rating: selectedStatus == "Quero jogar" ? null : rating,
     );
 
-    // Retorna o objeto para a tela anterior
     Navigator.pop(context, game);
   }
 
@@ -121,7 +109,6 @@ class _GameFormPageState extends State<GameFormPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Barra superior com título dinâmico (adicionar ou editar)
       appBar: AppBar(
         title: Text(
           widget.game == null ? "Adicionar Jogo" : "Editar Jogo",
@@ -136,7 +123,6 @@ class _GameFormPageState extends State<GameFormPage> {
         toolbarHeight: 80,
       ),
 
-      // Corpo da tela
       body: Padding(
         padding: EdgeInsets.all(16),
         child: SingleChildScrollView(
