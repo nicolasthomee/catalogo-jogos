@@ -189,7 +189,7 @@ flutter run
 
 ## 🎓 Contexto acadêmico
 
-Projeto desenvolvido como atividade prática da disciplina de Desenvolvimento Mobile, com objetivo de aplicar conceitos fundamentais do Flutter: estruturação de projeto, navegação entre telas, uso correto de widgets Stateful e Stateless, manipulação de estado e construção de interfaces responsivas.
+Projeto desenvolvido como atividade prática da disciplina de Desenvolvimento de Sistemas para WEB/Mobile IV, com objetivo de aplicar conceitos fundamentais do Flutter: estruturação de projeto, navegação entre telas, uso correto de widgets Stateful e Stateless, manipulação de estado e construção de interfaces responsivas.
 
 ---
 
